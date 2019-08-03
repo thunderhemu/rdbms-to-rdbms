@@ -1,0 +1,18 @@
+
+
+source_table_name :  <some-table>
+source_driver : <some-driver>
+source_user : <some-user-name>
+source_password : <some-password>
+source_columns : <some-columns>
+source_jdbc : <some-jdbc>
+target_table_name : <some target table>
+target_driver : <target driver>
+target : <jdbc>
+target_user : <some user>
+target_password  : <some-password>
+target_columns  : <some-columns>
+target_jdbc : <some-jdbc>
+source_table_where_condition_column : < column name>
+overloading_table : <yes/no>
+sourcer_condition_column_type : <column data type>

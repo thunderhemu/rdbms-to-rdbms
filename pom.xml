@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>rdbms-to-rdbms</groupId>
+    <artifactId>rdbms-to-rdbms</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging-slf4j_2.11</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <!--For the following spark dependencies, we don't use provided scope in order to create an fat-jar for manual testing without oozie-->
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-minicluster</artifactId>
+            <version>2.7.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>2.2.1</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.databricks/spark-csv -->
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>spark-csv_2.11</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.24</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.play/play-test -->
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-test_2.12</artifactId>
+            <version>2.7.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalikejdbc/scalikejdbc -->
+        <dependency>
+            <groupId>org.scalikejdbc</groupId>
+            <artifactId>scalikejdbc_2.11</artifactId>
+            <version>3.3.5</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.199</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalikejdbc/scalikejdbc-config -->
+        <dependency>
+            <groupId>org.scalikejdbc</groupId>
+            <artifactId>scalikejdbc-config_2.11</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.databricks/spark-csv -->
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>spark-csv_2.11</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-graphx -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_2.11</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+    </dependencies>
+
+</project>

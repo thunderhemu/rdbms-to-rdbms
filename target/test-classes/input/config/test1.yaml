@@ -1,0 +1,12 @@
+source_table_name : ACCOUNT_SOURCE
+source_driver : org.h2.Driver
+source_user : user
+source_password : pass
+source_jdbc : jdbc:h2:mem:test
+target_table_name : ACCOUNT_TARGET
+target_driver : org.h2.Driver
+overloading_table : "true"
+target : jdbc
+target_user : user
+target_password  : pass
+target_jdbc : jdbc:h2:mem:test
