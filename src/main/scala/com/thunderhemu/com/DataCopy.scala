@@ -17,15 +17,17 @@ class DataCopy(spark : SparkSession) {
                                     constants.SOURCE_USER,
                                     constants.SOURCE_PASSWORD,
                                     getSelectQuery(constants,conditionValue) )
-    rdbmsDf.createGlobalTempView("temp_table")
+    rdbmsDf.createTempView("temp_table")
     val writeDf = if (constants.TARGET_TABLE_TO_COLUMNS_SELECT != null )
                       spark.sql(s"""select ${constants.TARGET_TABLE_TO_COLUMNS_SELECT} from temp_table """)
                   else rdbmsDf
-    writeDf.show()
     val prop = new java.util.Properties
     prop.setProperty("driver", constants.TARGET_DRIVER)
     prop.setProperty("user", constants.TARGET_USER)
     prop.setProperty("password", constants.TARGET_PASSWORD)
+    writeDf.show()
+    writeDf.printSchema()
+    writeDf.printSchema()
     writeToJdbc(writeDf,constants.TARGET_JDBC_URL,constants.TARGET_TABLE_NAME,prop)
   }
 

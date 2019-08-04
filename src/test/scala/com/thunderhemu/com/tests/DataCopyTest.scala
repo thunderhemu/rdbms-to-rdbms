@@ -1,6 +1,7 @@
 package com.thunderhemu.com.tests
 
 import java.io.{File, FileInputStream, InputStream}
+import java.util.Properties
 
 import com.thunderhemu.com.{Constants, DataCopy}
 import org.apache.spark.SparkConf
@@ -33,8 +34,22 @@ class DataCopyTest extends FunSuite with BeforeAndAfterAll with BeforeAndAfter w
 
     sql"""
            create table ACCOUNT_TARGET (
-                                  accountid varchar(64) not null primary key,
+                                  accountid varchar(64) ,
                                   name varchar(64) )""".execute.apply()
+
+    sql"""
+           create table ACCOUNT_SOURCE_INT (
+                                  accountid  Number(38,0),
+                                  name varchar(64) )""".execute.apply()
+
+    sql"insert into ACCOUNT_SOURCE_INT (accountid,name) values (1,'Company A')".update.apply()
+    sql"insert into ACCOUNT_SOURCE_INT (accountid,name) values (2,'Company B')".update.apply()
+
+    sql"""
+           create table ACCOUNT_TARGET_INT (
+                                  accountid Number(38,0) ,
+                                  name varchar(64) )""".execute.apply()
+
   }
 
   override def afterAll() = {
@@ -147,11 +162,13 @@ class DataCopyTest extends FunSuite with BeforeAndAfterAll with BeforeAndAfter w
       .option("user", "user")
       .option("password", "pass")
       .load()
+    spark.catalog.dropTempView("temp_table")
     assert(df.count() > 1)
   }
 
-  test("continous load append"){
+  test("continous load append string "){
     val input  : InputStream = new FileInputStream(new File("src/test/resources/input/config/test2.yaml"))
+    spark.catalog.dropTempView("temp_table")
     new DataCopy(spark).process(input, Array("A"))
     val df = spark.sqlContext.read.format("jdbc")
       .option("url", "jdbc:h2:mem:test")
@@ -160,7 +177,22 @@ class DataCopyTest extends FunSuite with BeforeAndAfterAll with BeforeAndAfter w
       .option("user", "user")
       .option("password", "pass")
       .load()
-    assert(df.count() == 1)
+    df.show()
+  }
+
+
+  test("continous load append int "){
+    val input  : InputStream = new FileInputStream(new File("src/test/resources/input/config/test3.yaml"))
+    spark.catalog.dropTempView("temp_table")
+    new DataCopy(spark).process(input, Array("1"))
+    val df = spark.sqlContext.read.format("jdbc")
+      .option("url", "jdbc:h2:mem:test")
+      .option("driver", "org.h2.Driver")
+      .option("dbtable", "( select * from  ACCOUNT_TARGET_INT )")
+      .option("user", "user")
+      .option("password", "pass")
+      .load()
+    df.show()
   }
 
 }

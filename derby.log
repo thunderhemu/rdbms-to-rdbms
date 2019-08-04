@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Aug 03 10:55:17 CEST 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016c-56b0-b5fc-000008fb6300 
-on database directory /Users/hrtku/Desktop/mygit/rdbms-to-rdbms/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@60743cdb 
+Sun Aug 04 11:14:46 CEST 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016c-5be8-ea01-000008bc9c08 
+on database directory /Users/hrtku/Desktop/mygitproject/rdbms-to-rdbms/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@3a00b15d 
 Loaded from file:/Users/hrtku/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_201-b09
-user.dir=/Users/hrtku/Desktop/mygit/rdbms-to-rdbms
+user.dir=/Users/hrtku/Desktop/mygitproject/rdbms-to-rdbms
 os.name=Mac OS X
 os.arch=x86_64
 os.version=10.14.3

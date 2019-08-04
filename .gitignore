@@ -1,2 +1,4 @@
-metastore_db
-.idea
+metastore_db/
+.idea/
+target/
+.DS_STORE
