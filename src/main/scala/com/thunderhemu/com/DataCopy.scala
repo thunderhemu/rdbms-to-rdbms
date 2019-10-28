@@ -25,9 +25,6 @@ class DataCopy(spark : SparkSession) {
     prop.setProperty("driver", constants.TARGET_DRIVER)
     prop.setProperty("user", constants.TARGET_USER)
     prop.setProperty("password", constants.TARGET_PASSWORD)
-    writeDf.show()
-    writeDf.printSchema()
-    writeDf.printSchema()
     writeToJdbc(writeDf,constants.TARGET_JDBC_URL,constants.TARGET_TABLE_NAME,prop)
   }
 
